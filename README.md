@@ -1,1 +1,1 @@
-# tooltipme
+# Simple ToolTip plugin
