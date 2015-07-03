@@ -19,15 +19,15 @@
     }; 
 
     var showTipMe = function(event) {
-       $('div.tooltip').remove();
+       $('div.ttm-style').remove();
        var nome = $(this).attr("data-tooltipme");
-       $('<div class="tooltip">'+nome+'</div>')
+       $('<div class="ttm-style">'+nome+'</div>')
          .appendTo('body');
        changeTooltipPosition(event);
     };
 
     var hideTipMe = function() {
-        $('div.tooltip').remove();
+        $('div.ttm-style').remove();
     };
 
 })( jQuery, window, document );
