@@ -3,39 +3,36 @@
 
     $.fn.toolTipMe = function(options) {
 
-        this.each(function(){
+        var defaults = {
+            position: "absolute",
+            margin: '8px',
+            padding: '8px',
+            border: '1px solid blue',
+            backgroundColor: 'yellow'
+        };
 
-            var defaults = {
-                el: this,
-                position: "bottom"
-            };
+        var settings = $.extend( {}, defaults, options );
 
-            var settings = $.extend( {}, defaults, options );
+        var showTipMe = function(event) {
+           $('div.ttm-style').remove();
+           var nome = $(this).attr("data-tooltipme");
+           $('<div class="ttm-style">'+nome+'</div>')
+             .appendTo('body');
 
-            // return this.each(function() {
-            //     $(this).on({
-            //         mouseenter: showTipMe,
-            //         mouseleave: hideTipMe
-            //     });
-            // });
+            $('div.ttm-style').css(settings);
+        };
 
-            var showTipMe = function(event) {
-               $('div.ttm-style').remove();
-               var nome = $(this).attr("data-tooltipme");
-               $('<div class="ttm-style">'+nome+'</div>').appendTo('body');
+        var hideTipMe = function() {
+            $('div.ttm-style').remove();
+        };
 
-               //changeTooltipPosition(event);
-            };
-
-            var hideTipMe = function() {
-                $('div.ttm-style').remove();
-            };
-
-            settings.el.on('mouseenter', showTipMe);
-            settings.el.on('mouseleave', hideTipMe);
-
+        return this.each(function() {
+            $(this).on({
+                mouseenter: showTipMe,
+                mouseleave: hideTipMe
+            });
         });
-
     };
+
 
 })( jQuery, window, document );
