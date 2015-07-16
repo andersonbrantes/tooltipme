@@ -1,1 +1,1 @@
-# Simple ToolTip plugin - JQuery plugin test
+# Simple ToolTip JQuery plugin

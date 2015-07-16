@@ -61,11 +61,9 @@
         },
 
         showTipMe: function(event) {
-           $('div.ttm-style').remove();
-           var nome = $(this).attr("data-tooltipme");
-           $('<div class="ttm-style">'+nome+'</div>')
-             .appendTo('body');
-
+            $('div.ttm-style').remove();
+            var nome = $(this).attr("data-tooltipme");
+            $('<div class="ttm-style">'+nome+'</div>').appendTo('body');
             $('div.ttm-style').css(defaults);
         },
 
